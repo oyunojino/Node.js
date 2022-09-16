@@ -1,16 +1,20 @@
 # npm_error_resolution
 
-```
-npm WARN config global --global, --local are deprecated. Use --location=global instead. 해결
-```
-
 ### 에러 설명
 
-##### 실행 시 에러 발생
+실행 시 에러 발생
+
+- npm WARN config global --global, --local are deprecated. Use --location=global instead.
 
 ```javascript
 npm install --save winston
+```
+
+```javascript
 npm install --save winston-daily-rotate-file
+```
+
+```javascript
 npm install --save dotenv
 ```
 
@@ -36,4 +40,4 @@ npm install --save dotenv
 
 ### 참고 자료
 
-[Google](https://velog.io/@do_ng_iill/npm-WARN-config-global-global-local-are-deprecated.-Use-locationglobal-instead.-%ED%95%B4%EA%B2%B0)
+[Google](https://velog.io/@do_ng_iill/npm-WARN-config-global-global-local-are-deprecated.-Use-locationglobal-instead.-%ED%95%B4%EA%B2%B0, "comclothing.log")

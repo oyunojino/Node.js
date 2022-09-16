@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "dayjs": "^1.11.5",
+    "node-schedule": "^2.1.0"
+  }
 }

@@ -1,10 +1,8 @@
 # 에러 해결 방법
 
-'''
-
+```
 ## npm WARN config global --global, --local are deprecated. Use --location=global instead. 해결
-
-'''
+```
 
 ### 에러 설명
 
@@ -19,9 +17,10 @@
    > > npm install --global --production npm-windows-upgrade
    > >
    > > > npm-windows-upgrade
-   > > > '''
+   > > >
+   > > > ```
    > > > ? Which version do you want to install? [버전 선택]
-   > > > '''
+   > > > ```
    > > >
    > > > > npm -v
 

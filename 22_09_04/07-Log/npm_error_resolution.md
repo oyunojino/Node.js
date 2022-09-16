@@ -21,7 +21,7 @@ npm install --save dotenv
 ## 에러 해결 과정
 
 1. PowerShell[ 관리자 권한 ] 실행
-2. 오류가 발생한 폴더위치로 이동
+2. 오류가 발생한 폴더위치로 이동(명령어 "cd" 사용)
 3. 순서대로 입력 후 Enter
 
    > Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force

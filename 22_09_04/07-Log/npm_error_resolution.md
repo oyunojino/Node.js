@@ -1,7 +1,11 @@
-# 에러 해결 방법
+=========================
+
+# npm_error_resolution
+
+=========================
 
 ```
-## npm WARN config global --global, --local are deprecated. Use --location=global instead. 해결
+npm WARN config global --global, --local are deprecated. Use --location=global instead. 해결
 ```
 
 ### 에러 설명
@@ -28,4 +32,4 @@
 
 ### 참고 자료
 
-[Google]<https://velog.io/@do_ng_iill/npm-WARN-config-global-global-local-are-deprecated.-Use-locationglobal-instead.-%ED%95%B4%EA%B2%B0>
+[Google](https://velog.io/@do_ng_iill/npm-WARN-config-global-global-local-are-deprecated.-Use-locationglobal-instead.-%ED%95%B4%EA%B2%B0)

@@ -2,7 +2,7 @@
 import http from 'http';    // node 내장모듈이므로 추가 설치X
 
 // 2. 접속할 서버의 호스트 이름과 요청정보(path)설정
-const url = 'http://itpaper.co.kr/data/simple_text.txt';
+const url = 'http://data.hossam.kr/simple_text.txt';
 
 // 3. GET방식으로 접속하기 위한 객체 생성
 var req = http.get(url, function (res) {

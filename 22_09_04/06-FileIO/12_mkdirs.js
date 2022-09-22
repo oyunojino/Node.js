@@ -1,4 +1,4 @@
-import {mkdirs} from './helper/FileHelper';
+import { mkdirs } from './helper_1/FileHelper';
 import path from 'path';
 
 // 상대경로 방식으로 폴더 생성하기

@@ -1,7 +1,7 @@
 // 스케쥴에 따른 자동 수행
 
 // 1. 필요한 패키지 참조하기
-import logger from "./helper/LogHelper";
+import logger from "./helper_3/LogHelper";
 import schedule from 'node-schedule';
 
 // 2. 매 분 10초마다 수행

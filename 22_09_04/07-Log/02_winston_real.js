@@ -1,4 +1,4 @@
-import logger from "./helper/LogHelper";
+import logger from "./helper_2/LogHelper";
 
 logger.error('error 메시지 입니다.');
 logger.warn('warn 메시지 입니다.');

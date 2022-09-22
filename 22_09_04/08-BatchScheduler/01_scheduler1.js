@@ -1,7 +1,7 @@
 // 특정시각에 한번만 수행되는 예약작업 만들기
 
 // 1. 필요한 패키지 참조하기
-import logger from './helper/LogHelper';
+import logger from './helper_3/LogHelper';
 import dayjs from 'dayjs';
 import schedule from 'node-schedule';
 
@@ -21,4 +21,4 @@ schedule.scheduleJob(jsDate, () => {
     logger.debug('5초 후 예약된 작업이 수행되었습니다.');
 });
 
-logger.info(afTime.format('HH:mm:ss') + '에 작업이 예약되었습니다.') ;
+logger.info(afTime.format('HH:mm:ss') + '에 작업이 예약되었습니다.');

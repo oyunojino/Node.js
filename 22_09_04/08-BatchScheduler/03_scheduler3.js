@@ -1,7 +1,7 @@
 // Crontab 스타일의 스케줄 지정
 
 // 1. 필요한 패키지 참조하기
-import logger from './helper/LogHelper';
+import logger from './helper_3/LogHelper';
 import schedule from 'node-schedule';
 
 // 2. 매 분마다 수행

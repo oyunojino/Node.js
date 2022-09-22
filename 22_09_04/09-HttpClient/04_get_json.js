@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://itpaper.co.kr/data/grade_card.json';
+const url = 'http://data.hossam.kr/grade_card.json';
 
 (async () => {
     let json = null;

@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // 2. 접속할 서버의 호스트 이름과 요청정보(path)설정
-const url = 'http://itpaper.co.kr/data/simple_text.txt';
+const url = 'http://data.hossam.kr/simple_text.txt';
 
 // 3. async/await 방식을 즉시 실행 함수 형태로 정의
 (async () => {
@@ -22,6 +22,7 @@ const url = 'http://itpaper.co.kr/data/simple_text.txt';
         console.log("즉시 실행할 함수 방식 - " + errorMsg);
         return;
     }
+
 
     // promise 방식의 마지막 then은 뒷부분에 일반 코드로 작성
     console.log("Async-await 방식 - " + result);

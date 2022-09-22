@@ -14,7 +14,7 @@ import FormData from 'form-data';
         form.append('num2', 300);
 
         // POST 방식 전송
-        const response = await axios.post('http://itpaper.co.kr/data/post.php', form, {
+        const response = await axios.post('http://data.hossam.kr/post.php', form, {
             headers: form.getHeaders()
         });
         result = response.data;

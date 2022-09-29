@@ -128,6 +128,7 @@ router.get('/page1', (req, res, next) => {
 router.get('/page2', (req, res, next) => {
     // 브라우저에게 전달할 응답 내용
     let html = '<h1>Page2</h1>';
+    html += '<h2>Node.js Backend Page</h2>'
     //html += '<h2>node.js backend page</h2>';
 
     res.status(200).send(html);
@@ -137,6 +138,65 @@ router.get('/page3', (req, res, next) => {
     // 페이지 강제 이동
     res.redirect('https://www.naver.com');
 });
+
+// 02. GetParams.js
+// 02_get_params_by_link.html
+// 02_get_params_by_form.html
+// 02_get_params_by_js.html
+
+router.get('/send_get', (req, res, next) => {
+    // GET 파라미터들은 req.query 객체의 하위 데이터로 저장된다.
+
+    logger.debug('[ 프론트엔드로부터 전달받은 GET 파라미터 ]');
+    //req.query => json
+    // { key: value, ...}형식으로 분류하는 반복문
+    // k = {a:100}일 때, 어떤 형식으로 변환해야할까?
+    // 1. k.a    => 하나하나 일일히 작성해야하기 때문에 어려움
+    // 2. k["a"] => 배열형식이어야지 반복문 쓰기 편함
+    for (let key in req.params) {
+        const str = '/t >> ' + key + '=' + req.params[key];
+        logger.debug(str);
+    }
+
+    // /send_get?answer=0000 형태로 접근한 경우 answer 파라미터 값 추출
+    // const answer = req.query['answer'];
+    const answer = req.query.answer;
+    let html = null;
+
+    if (parseInt(answer) == 300) {
+        html = "<h1 style = 'color:#0066ff'>정답입니다.</h1>";
+    }
+    else {
+        html = "<h1 style = 'color:#ff6600'>틀렸습니다.</h1>";
+    }
+    res.status(200).send(html);
+});
+
+// 직접 URL로 테스트
+router.get('/send_url/:username/:age', (req, res, next) => {
+    // 콜론(:)이 붙는 것은 문자열이 아닌 변수임
+    //  ex) req.query.username / req.query.age 로 받음
+    
+    // URL 파라미터들은 req.params 객체의 하위 데이터로 저장된다.
+    // 전달받은 URL 파라미터는 GET 파라미터와 같은 방법으로 사용 가능함
+
+    // ex) http://172.16.146.25:3001/send_url/이젠/30
+    // 출력 - 이젠님은 30세 입니다.
+    logger.debug('[프론트엔드로부터 전달받은 URL 파라미터]');
+    // req.params = {
+    //     username: "이젠",
+    //     age: "30"
+    // };
+    for (let key in req.params) {
+        const str = '\t >> ' + key + '=' + req.params[key];
+        logger.debug(str);
+    }
+
+    const html = "<h1><span style= 'color:#0066ff'>" + req.params.username + "</span>님은 <span style = 'color:#ff6600'>" + req.params.age + "</span>세 입니다.</h1>";
+
+    res.status(200).send(html);
+});
+
 
 /*----------------------------------------------------------
     | 6) 설정한 내용을 기반으로 서버 구동 시작

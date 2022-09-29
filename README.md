@@ -2,21 +2,21 @@
 
 Node.js 수업 소스
 
-### PACKAGE DOWNLOAD
+## PACKAGE DOWNLOAD
 
-실행 전 terminal에서 실행 시켜주세요!!!
+    실행 전 terminal에서 실행 시켜주세요!!!
 
-```
-# npm install
-```
+    ```
+    # npm install
+    ```
 
-또는
+    또는
 
-```
-# yarn
-```
+    ```
+    # yarn
+    ```
 
-### FILE PATH
+## FILE PATH
 
 ```
 - 01-HelloNode

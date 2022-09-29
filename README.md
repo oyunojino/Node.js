@@ -2,6 +2,14 @@
 
 Node.js 수업 소스
 
+### Package Download
+
+실행 전 terminal에서 실행 시켜주세요!!!
+
+```
+npm install
+```
+
 ### 폴더 경로
 
 ```

@@ -2,7 +2,7 @@
 
 Node.js 수업 소스
 
-### Package Download
+### PACKAGE DOWNLOAD
 
 실행 전 terminal에서 실행 시켜주세요!!!
 
@@ -16,7 +16,7 @@ Node.js 수업 소스
 # yarn
 ```
 
-### 폴더 경로
+### FILE PATH
 
 ```
 - 01-HelloNode

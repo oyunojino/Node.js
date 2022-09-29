@@ -15,7 +15,7 @@ import serveStatic from "serve-static";         // 특정 폴더의 파일을 UR
 import serveFavicon from "serve-favicon";       // favicon 처리
 import bodyParser from "body-parser";           // POST 파라미터 처리
 import methodOverride from "method-override";   // PUT 파라미터 처리
-import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";       // Cookie  처리
 
 
 /*----------------------------------------------------------
@@ -99,6 +99,11 @@ app.use(methodOverride('X-HTTP-Method-Override'));      // Google / GData
 app.use(methodOverride('X-HTTP-Override'));             // IBM
 // HTML폼에서 PUT, DELETE로 전송할 경우 POST방식을 사용하되, action주소에 "?_method"라고 추가.
 app.use(methodOverride('_method'));                     // HTML Form
+
+// 쿠키를 처리할 수 있는 객체 연결
+// cookie-parser는 데이터를 저장, 조회 할 때 암호화 처리를 동반한다.
+// 이 때 암호화에 사용되는 key 문자열을 개발자가 정해야 한다.
+app.use(cookieParser(process.env.COOKIE_ENCRYPT_KEY));
 
 // HTML, CSS, IMG, JS 등의 정적 파일을 URL에 노출시킬 폴더 연결
 // "http://아이피(혹은 도메인):포트번호" 이후의 경로가 router에 등록되지 않은 경로라면
@@ -293,6 +298,60 @@ router
         const html = "<h1><span style = 'color:#0066ff'>" + req.params.productNumber + "</span> 상품 <span style='color:#ff6600'>삭제</span> 하기 </h1>";
         res.status(200).send(html);
     });
+
+// 04-cookie.js
+// public/04_cookie.html
+router
+    .post('/cookie', (req, res, next) => {
+        // post로 전달된 파라미터 받기
+        const msg = req.body.msg;
+
+        // 일반 쿠키 저장하기 -> 유효시간을 30초로 설정
+        res.cookie('my_msg', msg, {
+            maxAge: 30 * 1000, // ms단위
+            path: '/'
+        });
+
+        // 암호화된 쿠키 저장하기 -> 유효시간을 30초로 설정
+        res.cookie('my_msg_signed', msg, {
+            maxAge: 30 * 1000,
+            path: '/',
+            signed: true
+        });
+
+        res.status(200).send('ok');
+    })
+    .get('/cookie', (req, res, next) => {
+        // 일반 쿠키값들은 req.cookies 객체의 하위 데이터로 저장된다. (일반 데이터)
+        for (let key in req.cookies) {
+            const str = '[ cookies ]' + key + '=' + req.cookies[key];
+            logger.debug(str);
+        }
+        // 암호화 된 쿠키값들은 req.signedCookies 객체의 하위 데이터로 저장된다.
+        for (let key in req.signedCookies) {
+            const str = '[signedCookies]' + key + '=' + req.signedCookies[key];
+            logger.debug(str);
+        }
+
+        // 원하는 쿠키값을 가져온다.
+        const my_msg = req.cookies.my_msg;
+        const my_msg_signed = req.signedCookies.my_msg_signed;
+
+        const result_data = {
+            my_msg: my_msg,
+            my_msg_signed: my_msg_signed,
+        };
+
+        res.status(200).send(result_data);
+    })
+    .delete('/cookie', (req, res, next) => {
+        // 저장시 domain, path를 설정했다면 삭제시에도 동일한 값을 지정해야함
+        res.clearCookie('my_msg', { path: '/' });
+        res.clearCookie('my_msg_signed', { path: '/' });
+        res.status(200).send('clear');
+    });
+
+
 
 
 
